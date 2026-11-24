@@ -22,9 +22,9 @@ ENTRY = (
 def main() -> None:
     out_dir = "/output"
     os.makedirs(out_dir, exist_ok=True)
-    data = ENTRY.encode("utf-8")
-    if not 1 <= len(data) <= 200:
+    if not 1 <= len(ENTRY) <= 200:
         raise SystemExit("entry must be 1-200 characters")
+    data = ENTRY.encode("utf-8")
     tmp = os.path.join(out_dir, ".entry.txt.tmp")
     with open(tmp, "wb") as f:
         f.write(data)
